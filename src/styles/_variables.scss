@@ -1,0 +1,34 @@
+// theme colors
+$light-theme-colors: (
+  "primary-color": #dddddd,
+  "secondary-color": #f4f4f4f4,
+  "font-color": #424242,
+  "bg-color": #fff,
+  "heading-color": #818cab,
+);
+
+$dark-theme-colors: (
+  "primary-color": #888888,
+  "secondary-color": #818cab,
+  "font-color": #e1e1ff,
+  "bg-color": #161625,
+  "heading-color": #292929,
+);
+
+// spacing
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 10px;
+
+// box-shadow
+$base-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.1);
+
+// font-size
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.9;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xl: $base-font-size * 2;
+$font-size-xxl: $base-font-size * 3;

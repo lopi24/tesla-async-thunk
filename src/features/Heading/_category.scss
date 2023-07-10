@@ -1,0 +1,69 @@
+@use "../../styles/grid";
+@use "../../styles/variables";
+@use "../../styles/breakpoints";
+
+%anchor-style {
+  transition: 0.3s;
+  padding: 0.5rem 1rem;
+  color: map-get(variables.$light-theme-colors, "font-color");
+  font-size: variables.$font-size-sm;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+nav {
+  .exit-container {
+    display: none;
+  }
+  .search-container {
+    display: none;
+  }
+  .container {
+    @include grid.base-flex-container;
+
+    li {
+      a {
+        @extend %anchor-style;
+        white-space: nowrap;
+        text-transform: capitalize;
+      }
+      a:hover {
+        background-color: map-get(
+          variables.$light-theme-colors,
+          "secondary-color"
+        );
+      }
+    }
+  }
+}
+
+@include breakpoints.md {
+  nav {
+    height: 100%;
+    width: 100%;
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 100%;
+
+      li {
+        display: flex;
+        width: 100%;
+
+        a {
+          width: 100%;
+          padding: 1rem 0.75rem;
+        }
+
+        a:hover {
+          background-color: map-get(
+            variables.$light-theme-colors,
+            "secondary-color"
+          );
+        }
+      }
+    }
+  }
+}
