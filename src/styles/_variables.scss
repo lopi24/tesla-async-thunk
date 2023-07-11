@@ -1,10 +1,20 @@
+@font-face {
+  font-family: teslaFont;
+  src: url("../../tesla-font/TESLA.ttf");
+}
+
+@font-face {
+  font-family: gotham;
+  src: url("../../tesla-font/GothamMedium_1.ttf");
+}
+
 // theme colors
 $light-theme-colors: (
-  "primary-color": #dddddd,
+  "primary-color": #66676b,
   "secondary-color": #f4f4f4f4,
   "font-color": #424242,
   "bg-color": #fff,
-  "heading-color": #818cab,
+  "heading-color": #000,
 );
 
 $dark-theme-colors: (
@@ -16,8 +26,9 @@ $dark-theme-colors: (
 );
 
 // spacing
-$base-padding: 0.75rem;
-$base-margin: 0.75rem;
+$base-padding: 0.75rem 1rem;
+$base-margin: 0.5rem;
+$base-section-margin: 5rem auto;
 
 // borders
 $base-border-thickness: 1px;
@@ -27,8 +38,14 @@ $base-border-radius: 10px;
 $base-box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.1);
 
 // font-size
+$base-svg-size: 1.5rem;
 $base-font-size: 1rem;
 $font-size-sm: $base-font-size * 0.9;
-$font-size-lg: $base-font-size * 1.5;
-$font-size-xl: $base-font-size * 2;
-$font-size-xxl: $base-font-size * 3;
+$font-size-lg: $base-font-size * 1.25;
+$font-size-xl: $base-font-size * 1.5;
+$font-size-xxl: $base-font-size * 2;
+$font-size-xxxl: $base-font-size * 2.5;
+
+// font-family
+$primary-font: gotham;
+$secondary-font: teslaFont;

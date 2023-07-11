@@ -7,7 +7,7 @@
   padding: 0.5rem 1rem;
   color: map-get(variables.$light-theme-colors, "font-color");
   font-size: variables.$font-size-sm;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 3px;
 }
 
@@ -28,6 +28,13 @@ nav {
         text-transform: capitalize;
       }
       a:hover {
+        background-color: map-get(
+          variables.$light-theme-colors,
+          "secondary-color"
+        );
+      }
+
+      a.active {
         background-color: map-get(
           variables.$light-theme-colors,
           "secondary-color"

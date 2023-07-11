@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Category from "../features/Heading/Category";
-import Cart from "../features/Heading/utility/Cart";
+import Cart from "../features/Heading/utility/cart/CartButton";
 import Search from "../features/Heading/utility/Search";
 import { BiX } from "react-icons/bi";
 import "./_header.scss";
@@ -35,15 +35,15 @@ const Header = () => {
       setMenuStyle({
         width: "100%",
         opacity: "1",
-        zIndex: "1",
+        zIndex: "99",
         padding: "0 1.75rem",
         right: "0",
       });
     } else if (toggleMenu && screenSize.width > 425) {
       setMenuStyle({
-        width: "60vh",
+        width: "50vh",
         opacity: "1",
-        zIndex: "1",
+        zIndex: "99",
         padding: "0 1.75rem",
         right: "0",
       });
@@ -67,13 +67,13 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/" className="logo">
         tesla.<span>shop</span>
       </Link>
-      {screenSize.width > 768 && <div className="category">{<Category />}</div>}
+      {screenSize.width > 840 && <div className="category">{<Category />}</div>}
 
       <div className="utility">
-        {screenSize.width > 768 && (
+        {screenSize.width > 840 && (
           <div className="search-box">
             <Search />
           </div>
@@ -83,7 +83,7 @@ const Header = () => {
           <Cart />
         </div>
 
-        {screenSize.width <= 768 && (
+        {screenSize.width <= 840 && (
           <div className="menu">
             <div className="menu-btn" onClick={setMenuStyleHandler}>
               menu

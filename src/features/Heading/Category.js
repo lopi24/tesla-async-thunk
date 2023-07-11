@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./_category.scss";
 
@@ -7,16 +7,36 @@ const Category = () => {
     <nav>
       <ul className="container">
         <li>
-          <Link>Charging</Link>
+          <NavLink
+            className={(navData) => (navData.isActive ? "active" : "")}
+            to="/category/charging"
+          >
+            Charging
+          </NavLink>
         </li>
         <li>
-          <Link>Vehicle Accessories</Link>
+          <NavLink
+            to="/category/vehicle_accessories"
+            className={(navData) => (navData.isActive ? "active" : "")}
+          >
+            Vehicle Accessories
+          </NavLink>
         </li>
         <li>
-          <Link>Apparel</Link>
+          <NavLink
+            to="/category/apparel"
+            className={(navData) => (navData.isActive ? "active" : "")}
+          >
+            Apparel
+          </NavLink>
         </li>
         <li>
-          <Link>Lifestyle</Link>
+          <NavLink
+            to="/category/lifestyle"
+            className={(navData) => (navData.isActive ? "active" : "")}
+          >
+            Lifestyle
+          </NavLink>
         </li>
       </ul>
     </nav>

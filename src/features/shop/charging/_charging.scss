@@ -1,0 +1,31 @@
+@use "../../../styles/variables";
+
+.charging-section {
+  margin: variables.$base-section-margin;
+  margin: 5rem auto;
+  width: 95%;
+  height: 100%;
+  flex-grow: 1;
+
+  .heading {
+    width: 100%;
+    padding: variables.$base-padding;
+    margin: 0.5rem;
+
+    h1 {
+      font-weight: 500;
+      font-size: variables.$font-size-xl;
+      color: map-get(variables.$light-theme-colors, "heading-color");
+    }
+  }
+
+  .content {
+    width: 95%;
+    height: 100%;
+    // margin: variables.$base-margin;
+    margin: 0 auto;
+    padding: variables.$base-padding;
+
+    flex-grow: 1;
+  }
+}

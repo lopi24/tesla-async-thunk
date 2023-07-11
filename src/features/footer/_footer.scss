@@ -1,0 +1,42 @@
+@use "../../styles/variables";
+@use "../../styles/breakpoints";
+@use "../../styles//grid";
+
+.footer-section {
+  margin: 0 auto;
+  // border: 1px solid red;
+  margin: 1rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    @include grid.base-flex-container;
+
+    p {
+      font-size: 0.85rem;
+      text-transform: capitalize;
+      color: map-get(variables.$light-theme-colors, "primary-color");
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+// @include breakpoints.md {
+//   .footer-section {
+//     margin-bottom: 3rem;
+//   }
+// }
+
+@include breakpoints.sm {
+  .footer-section {
+    .content {
+      flex-direction: column;
+
+      p {
+        margin: variables.$base-margin;
+      }
+    }
+  }
+}

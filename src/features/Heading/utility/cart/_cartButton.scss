@@ -1,0 +1,17 @@
+@use "../../../../styles/variables";
+
+a {
+  color: map-get(variables.$light-theme-colors, "font-color");
+  svg {
+    font-size: variables.$base-svg-size;
+    cursor: pointer;
+  }
+}
+
+a.active {
+  color: #000;
+}
+
+a:hover {
+  fill: #000;
+}
