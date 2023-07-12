@@ -6,6 +6,7 @@
   position: fixed;
   width: 100%;
   padding: variables.$base-padding;
+  // padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +24,9 @@
     font-size: variables.$font-size-lg;
     letter-spacing: 0.5rem;
     color: map-get(variables.$light-theme-colors, "font-color");
+    transition: 0.3s;
+    padding: 0.5rem;
+    border-radius: 3px;
 
     span {
       font-family: variables.$primary-font;
@@ -31,6 +35,11 @@
       text-transform: capitalize;
       letter-spacing: normal;
     }
+  }
+
+  .logo:hover,
+  a.active {
+    color: map-get(variables.$light-theme-colors, "heading-color");
   }
 
   .category {

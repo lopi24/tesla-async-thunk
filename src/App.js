@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Shop from "./features/shop/Shop";
-import Charging from "./features/shop/charging/Charging";
-import VehicleAccessories from "./features/shop/vehicle-accessories/VehicleAccessories";
-import Apparel from "./features/shop/apparel/Apparel";
-import Lifestyle from "./features/shop/lifestyle/Lifestyle";
+import Charging from "./features/shop/page/charging/Charging";
+import VehicleAccessories from "./features/shop/page/vehicle-accessories/VehicleAccessories";
+import Apparel from "./features/shop/page/apparel/Apparel";
+import Lifestyle from "./features/shop/page/lifestyle/Lifestyle";
 import Cart from "./features/Heading/utility/cart/Cart";
 
 function App() {

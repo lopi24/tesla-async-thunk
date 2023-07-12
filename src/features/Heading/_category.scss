@@ -32,6 +32,7 @@ nav {
           variables.$light-theme-colors,
           "secondary-color"
         );
+        color: map-get(variables.$light-theme-colors, "heading-color");
       }
 
       a.active {
@@ -39,6 +40,7 @@ nav {
           variables.$light-theme-colors,
           "secondary-color"
         );
+        color: map-get(variables.$light-theme-colors, "heading-color");
       }
     }
   }

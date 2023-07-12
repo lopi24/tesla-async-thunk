@@ -1,0 +1,113 @@
+@use "../../styles/breakpoints";
+@use "../../styles/variables";
+@use "../../styles/grid";
+
+//   border: 1px solid red;
+
+.hero-section {
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 7%;
+  }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  background-color: map-get(variables.$light-theme-colors, "secondary-color");
+  height: 6px;
+  width: 6px;
+  margin: 0 6px;
+}
+
+.swiper-slide {
+  position: relative;
+  @include grid.base-flex-container;
+  text-align: center;
+
+  .slider {
+    @include grid.base-flex-container;
+    width: 100%;
+
+    img {
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+    .hero-slide-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: variables.$base-margin;
+      position: absolute;
+      bottom: 15%;
+      color: #fff;
+      @include grid.base-flex-container;
+
+      h1 {
+        font-size: variables.$font-size-xxxl;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+
+      h3 {
+        font-size: variables.$font-size-xl;
+        font-weight: 500;
+      }
+
+      h3::first-letter {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@include breakpoints.md {
+  .swiper-slide {
+    .slider {
+      img {
+        object-position: 70% 75%;
+      }
+    }
+  }
+}
+
+@include breakpoints.sm {
+  .hero-section {
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal > .swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      bottom: 5%;
+    }
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 5px;
+  }
+
+  .swiper-slide {
+    .slider {
+      .hero-slide-content {
+        width: 100%;
+        bottom: 9%;
+
+        h1 {
+          font-size: variables.$font-size-xl;
+          margin: 0 0.75rem;
+        }
+
+        h3 {
+          font-size: variables.$base-font-size;
+          margin: 0 0.75rem;
+        }
+      }
+    }
+  }
+}

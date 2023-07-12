@@ -1,0 +1,21 @@
+@use "../../styles/variables";
+@use "../../styles/breakpoints";
+
+.ui-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: map-get(variables.$light-theme-colors, "bg-color");
+  width: 35vh;
+  padding: variables.$base-padding;
+  border-radius: 5px;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+
+@include breakpoints.sm {
+  .ui-button {
+    margin-top: 1.2rem;
+    width: 90%;
+  }
+}

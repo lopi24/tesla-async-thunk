@@ -4,7 +4,7 @@ import Cart from "../features/Heading/utility/cart/CartButton";
 import Search from "../features/Heading/utility/Search";
 import { BiX } from "react-icons/bi";
 import "./_header.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
@@ -67,9 +67,12 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Link to="/" className="logo">
+      <NavLink
+        to="/"
+        className={(navData) => (navData.isActive ? "logo active" : "logo")}
+      >
         tesla.<span>shop</span>
-      </Link>
+      </NavLink>
       {screenSize.width > 840 && <div className="category">{<Category />}</div>}
 
       <div className="utility">

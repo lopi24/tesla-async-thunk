@@ -2,12 +2,12 @@ import "./_charging.scss";
 
 const Charging = () => {
   return (
-    <div className="charging-section">
+    <section className="charging-section">
       <div className="heading">
-        <h1>Charging</h1>
+        <h1>Charging Category</h1>
       </div>
-      <div className="content">charging content</div>
-    </div>
+      <div className="content">Charging Content</div>
+    </section>
   );
 };
 
