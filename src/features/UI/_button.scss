@@ -11,6 +11,11 @@
   border-radius: 5px;
   text-transform: capitalize;
   transition: 0.3s;
+  font-size: variables.$font-size-sm;
+}
+
+.ui-button:hover {
+  background-color: map-get(variables.$light-theme-colors, "secondary-color");
 }
 
 @include breakpoints.sm {

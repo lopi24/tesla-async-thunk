@@ -1,0 +1,73 @@
+@use "../../../../styles/grid";
+@use "../../../../styles/variables";
+@use "../../../../styles/breakpoints";
+
+.home-lifestyle-section {
+  position: relative;
+  @include grid.base-flex-container;
+  text-align: center;
+
+  .home-lifestyle-img-section {
+    @include grid.base-flex-container;
+    width: 100%;
+
+    img {
+      height: 95vh;
+      //   width: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
+  .home-lifestyle-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: variables.$base-margin;
+    position: absolute;
+    bottom: 15%;
+    color: #fff;
+    @include grid.base-flex-container;
+
+    h1 {
+      font-size: variables.$font-size-xxxl;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: map-get(variables.$light-theme-colors, heading-color);
+    }
+
+    a {
+      border: 3px solid map-get(variables.$light-theme-colors, heading-color);
+      color: map-get(variables.$light-theme-colors, "font-color");
+      background-color: transparent;
+    }
+
+    a:hover {
+      background-color: map-get(variables.$light-theme-colors, "heading-color");
+      color: map-get(variables.$light-theme-colors, "bg-color");
+    }
+  }
+}
+
+@include breakpoints.md {
+  .home-lifestyle-section {
+    .home-lifestyle-img-section {
+      img {
+        object-position: 50% 10%;
+      }
+    }
+  }
+}
+
+@include breakpoints.sm {
+  .home-lifestyle-section {
+    .home-lifestyle-content {
+      width: 100%;
+      bottom: 9%;
+
+      h1 {
+        font-size: variables.$font-size-xl;
+        margin: 0 0.75rem;
+      }
+    }
+  }
+}

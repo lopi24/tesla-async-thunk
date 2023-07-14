@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Category from "../features/Heading/Category";
-import Cart from "../features/Heading/utility/cart/CartButton";
+import CategoryNav from "../features/Heading/CategoryNav";
+import Cart from "../features/shop/cart-page/CartButton";
 import Search from "../features/Heading/utility/Search";
 import { BiX } from "react-icons/bi";
 import "./_header.scss";
@@ -73,7 +73,9 @@ const Header = () => {
       >
         tesla.<span>shop</span>
       </NavLink>
-      {screenSize.width > 840 && <div className="category">{<Category />}</div>}
+      {screenSize.width > 840 && (
+        <div className="category">{<CategoryNav />}</div>
+      )}
 
       <div className="utility">
         {screenSize.width > 840 && (
@@ -100,7 +102,7 @@ const Header = () => {
                 <Search />
                 <input placeholder="Search" />
               </div>
-              <Category />
+              <CategoryNav />
             </div>
           </div>
         )}

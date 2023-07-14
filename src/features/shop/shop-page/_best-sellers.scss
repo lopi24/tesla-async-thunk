@@ -1,0 +1,108 @@
+@use "../../../styles/variables";
+@use "../../../styles/breakpoints";
+
+.best-sellers-section {
+  margin: variables.$base-margin;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+  padding: variables.$base-padding;
+
+  .heading {
+    h1 {
+      text-transform: capitalize;
+      font-weight: 400;
+      font-size: variables.$font-size-xxl;
+    }
+  }
+
+  .content {
+    .swiper {
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: map-get(
+          variables.$light-theme-colors,
+          "primary-color"
+        );
+        opacity: 0.5;
+        padding: 1rem 1.4rem;
+        border-radius: 50%;
+      }
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 1.25rem;
+        color: map-get(variables.$light-theme-colors, "bg-color");
+      }
+    }
+    margin: 2rem 0;
+    .slider {
+      display: flex;
+      flex-direction: column;
+      //   border: 1px solid red;
+      height: 40vw;
+
+      img {
+        height: 90%;
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        flex-grow: 1;
+      }
+
+      .best-sellers-slide-content {
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        width: 100%;
+        height: 10%;
+        margin: 1rem 0;
+
+        p {
+          text-align: justify;
+          font-size: 1.15rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints.md {
+  .best-sellers-section {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    .heading {
+      h1 {
+        font-size: variables.$font-size-xl;
+      }
+    }
+    .content {
+      .slider {
+        height: 50vw;
+
+        .best-sellers-slide-content {
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints.sm {
+  .best-sellers-section {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    .heading {
+      h1 {
+        font-size: variables.$font-size-lg;
+      }
+    }
+    .content {
+      margin-bottom: 0;
+      .slider {
+        height: 100vw;
+      }
+    }
+  }
+}
