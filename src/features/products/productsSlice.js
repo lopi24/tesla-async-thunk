@@ -12,10 +12,7 @@ const PRODUCT_URL =
 
 // TRY TO CHANGE THE STRUTURE OF THE DATABASE MAKE IT LIKE TESLA{productId {name, price, imgs{imgId:img}, category, tags(this is for the at-home in charging)}}
 
-// const productsAdapter = createEntityAdapter({
-//   selectId: (product) => product.productId,
-// });
-
+//  function that generates a set of prebuilt reducers and selectors for performing CRUD operations on a normalized state structure containing instances of a particular type of data object.
 // const productsAdapter = createEntityAdapter();
 
 // const initialState = productsAdapter.getInitialState({
@@ -100,7 +97,7 @@ export const getProductsStatus = (state) => state.products.status;
 export const getProductsError = (state) => state.products.error;
 
 // createSelectors - this creates a memoized selector. It won't rerun until products or the category changes.
-// this createSelector is for optimization, it will memoized the products so that whenever there's a side effect it wont re-render the whole items(ex. if there are 100 items, it wont render 100).
+// this createSelector is for optimization, it will memoized the selectProductsByCategpry so that whenever there's a side effect it wont re-render the whole items(ex. if there are 100 items, it wont render 100).
 export const selectProductsByCategory = createSelector(
   [selectAllProducts, (state, categoryType) => categoryType],
   (products, categoryType) =>
