@@ -12,16 +12,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 // temporary imports will change later for fetching from db
-import slide1 from "../../../assets/best-seller-pics/wall-connector.png";
-import slide2 from "../../../assets/best-seller-pics/model-3y-center-console-trays.png";
-import slide3 from "../../../assets/best-seller-pics/sae-j1772-charging-adapter.png";
-import slide4 from "../../../assets/best-seller-pics/model-y-all-weather-interior-liners.png";
-import slide5 from "../../../assets/best-seller-pics/model-y-all-weather-rear-cargo-liner.png";
-import slide6 from "../../../assets/best-seller-pics/model-y-mud-flaps.png";
-import slide7 from "../../../assets/best-seller-pics/model-3-all-weather-interior-liners.png";
-import slide8 from "../../../assets/best-seller-pics/tire-repair-kit.png";
-import slide9 from "../../../assets/best-seller-pics/model-3y-key-fob.png";
-import slide10 from "../../../assets/best-seller-pics/model-s3y-pet-liner.png";
+import slide1 from "../../assets/best-seller-pics/wall-connector.png";
+import slide2 from "../../assets/best-seller-pics/model-3y-center-console-trays.png";
+import slide3 from "../../assets/best-seller-pics/sae-j1772-charging-adapter.png";
+import slide4 from "../../assets/best-seller-pics/model-y-all-weather-interior-liners.png";
+import slide5 from "../../assets/best-seller-pics/model-y-all-weather-rear-cargo-liner.png";
+import slide6 from "../../assets/best-seller-pics/model-y-mud-flaps.png";
+import slide7 from "../../assets/best-seller-pics/model-3-all-weather-interior-liners.png";
+import slide8 from "../../assets/best-seller-pics/tire-repair-kit.png";
+import slide9 from "../../assets/best-seller-pics/model-3y-key-fob.png";
+import slide10 from "../../assets/best-seller-pics/model-s3y-pet-liner.png";
 
 const sliderPics = [
   {

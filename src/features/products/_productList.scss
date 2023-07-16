@@ -1,0 +1,77 @@
+@use "../../styles/variables";
+@use "../../styles/breakpoints";
+
+.products-list-card {
+  padding: 0.5rem 0;
+  display: inline;
+
+  .product-img {
+    display: flex;
+    position: relative;
+    // height: 100%;
+
+    .quick-add {
+      position: absolute;
+      //   display: flex;
+      align-items: center;
+      justify-content: center;
+      //   border: 1px solid red;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      min-height: 7vw;
+      text-align: center;
+      background-color: map-get(variables.$light-theme-colors, "bg-color");
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2),
+        0 1px 10px 0 rgba(0, 0, 0, 0.19);
+      text-transform: capitalize;
+      font-size: 2.5vh;
+      cursor: pointer;
+    }
+  }
+
+  .product-details {
+    p,
+    a {
+      float: left;
+      clear: both;
+      padding: 0.25rem 0;
+      color: map-get(variables.$light-theme-colors, "font-color");
+    }
+  }
+
+  .product-details {
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .product-details {
+    a:hover {
+      color: #ed4e3b;
+    }
+  }
+}
+
+@include breakpoints.sm {
+  .products-list-card {
+    .product-details {
+      a,
+      p {
+        font-size: variables.$font-size-sm;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .products-list-card {
+    .product-details {
+      a,
+      p {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

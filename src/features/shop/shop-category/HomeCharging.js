@@ -1,6 +1,6 @@
-import Button from "../../../UI/Button";
+import Button from "../../UI/Button";
 import "./_homeCharging.scss";
-import chargingPic from "../../../../assets/home-categories-pics/charging.png";
+import chargingPic from "../../../assets/home-categories-pics/charging.png";
 
 const HomeCharging = () => {
   return (

@@ -1,4 +1,4 @@
-import Button from "../../UI/Button";
+import Button from "../UI/Button";
 import "./_hero.scss";
 
 import { Autoplay, Pagination, A11y } from "swiper/modules";
@@ -11,9 +11,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 // temporary imports will change later for fetching from db
-import slide1 from "../../../assets/hero-slide-pics/wall-connector-slide1.png";
-import slide2 from "../../../assets/hero-slide-pics/chill-collection-slide2.png";
-import slide3 from "../../../assets/hero-slide-pics/model-y-all-weather-interior-line-slide3.png";
+import slide1 from "../../assets/hero-slide-pics/wall-connector-slide1.png";
+import slide2 from "../../assets/hero-slide-pics/chill-collection-slide2.png";
+import slide3 from "../../assets/hero-slide-pics/model-y-all-weather-interior-line-slide3.png";
 
 const sliderPics = [
   {

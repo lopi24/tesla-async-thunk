@@ -41,6 +41,8 @@ export const fetchProducts = createAsyncThunk(
           price: data[key].price,
           category: data[key].category,
           tags: data[key].tags,
+          subCategory: data[key].subCategory,
+          outOfStock: data[key].outOfStock,
           imgs: loadedImgs,
         });
       }

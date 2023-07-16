@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CategoryNav from "../features/Heading/CategoryNav";
-import Cart from "../features/shop/cart-page/CartButton";
+import CartButton from "../features/cart/CartButton";
 import Search from "../features/Heading/utility/Search";
 import { BiX } from "react-icons/bi";
 import "./_header.scss";
@@ -73,22 +73,22 @@ const Header = () => {
       >
         tesla.<span>shop</span>
       </NavLink>
-      {screenSize.width > 840 && (
+      {screenSize.width > 940 && (
         <div className="category">{<CategoryNav />}</div>
       )}
 
       <div className="utility">
-        {screenSize.width > 840 && (
+        {screenSize.width > 940 && (
           <div className="search-box">
             <Search />
           </div>
         )}
 
         <div className="cart-box">
-          <Cart />
+          <CartButton />
         </div>
 
-        {screenSize.width <= 840 && (
+        {screenSize.width <= 940 && (
           <div className="menu">
             <div className="menu-btn" onClick={setMenuStyleHandler}>
               menu

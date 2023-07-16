@@ -1,8 +1,8 @@
-import Button from "../../../UI/Button";
+import Button from "../../UI/Button";
 import "./_homeApparel.scss";
-import apparelMen from "../../../../assets/home-categories-pics/apparel-men.png";
-import apparelWomen from "../../../../assets/home-categories-pics/apparel-women.png";
-import apparelKids from "../../../../assets/home-categories-pics/apparel-kids.png";
+import apparelMen from "../../../assets/home-categories-pics/apparel-men.png";
+import apparelWomen from "../../../assets/home-categories-pics/apparel-women.png";
+import apparelKids from "../../../assets/home-categories-pics/apparel-kids.png";
 
 const apparelPics = [
   {

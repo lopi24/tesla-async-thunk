@@ -1,4 +1,4 @@
-@use "../../../styles/variables";
+@use "../../styles/variables";
 
 a {
   color: map-get(variables.$light-theme-colors, "font-color");

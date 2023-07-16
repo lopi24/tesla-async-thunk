@@ -1,6 +1,6 @@
-@use "../../../styles/breakpoints";
-@use "../../../styles/variables";
-@use "../../../styles/grid";
+@use "../../styles/breakpoints";
+@use "../../styles/variables";
+@use "../../styles/grid";
 
 .cart-section {
   margin: variables.$base-section-margin;
