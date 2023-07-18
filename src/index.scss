@@ -13,3 +13,9 @@
 
 // utils (margin, padding, etc)
 @import "styles/grid";
+
+.sample-button {
+  z-index: 99;
+  height: 20px;
+  width: 50px;
+}

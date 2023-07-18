@@ -17,6 +17,7 @@ const productsAdapter = createEntityAdapter({
 const initialState = productsAdapter.getInitialState({
   status: "idle", //"idle" || "loading" || "succeeded" || "failed"
   error: null,
+  count: 0,
 });
 
 // middleware
@@ -57,7 +58,12 @@ export const fetchProducts = createAsyncThunk(
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    // for testing side effects
+    increaseCount(state, action) {
+      state.count += 1;
+    },
+  },
   // this is for handling fetch requests
   extraReducers(builder) {
     builder
@@ -84,10 +90,15 @@ export const { selectAll: selectAllProducts } = productsAdapter.getSelectors(
 export const getProductsStatus = (state) => state.products.status;
 export const getProductsError = (state) => state.products.error;
 
+// for testing rendering
+export const getCount = (state) => state.products.count;
+
 export const selectProductsByCategory = createSelector(
   [selectAllProducts, (state, categoryType) => categoryType],
   (products, categoryType) =>
     products.filter((product) => product.category === categoryType)
 );
+
+export const { increaseCount } = productsSlice.actions;
 
 export default productsSlice.reducer;

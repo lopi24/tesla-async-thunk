@@ -6,7 +6,17 @@ import { BiX } from "react-icons/bi";
 import "./_header.scss";
 import { NavLink } from "react-router-dom";
 
+// for testing
+// import { useDispatch, useSelector } from "react-redux";
+// import { increaseCount, getCount } from "../features/products/productsSlice";
+// for testing
+
 const Header = () => {
+  // for testing rendering
+  // const dispatch = useDispatch();
+  // const count = useSelector(getCount);
+  // for testing rendering
+
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
   const [menuStyle, setMenuStyle] = useState({
@@ -73,6 +83,7 @@ const Header = () => {
       >
         tesla.<span>shop</span>
       </NavLink>
+
       {screenSize.width > 940 && (
         <div className="category">{<CategoryNav />}</div>
       )}
@@ -107,6 +118,14 @@ const Header = () => {
           </div>
         )}
       </div>
+      {/* testing */}
+      {/* <button
+        className="sample-button"
+        onClick={() => dispatch(increaseCount())}
+      >
+        {count}
+      </button> */}
+      {/* testing */}
     </header>
   );
 };

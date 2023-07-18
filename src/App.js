@@ -14,10 +14,6 @@ function App() {
 
         <Route path="category">
           <Route path=":categoryType" element={<CategoryPage />} />
-          {/* <Route path="charging" element={<Charging />} />
-          <Route path="vehicle_accessories" element={<VehicleAccessories />} />
-          <Route path="apparel" element={<Apparel />} />
-          <Route path="lifestyle" element={<Lifestyle />} /> */}
         </Route>
       </Route>
     </Routes>

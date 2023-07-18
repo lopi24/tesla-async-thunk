@@ -14,14 +14,14 @@ const CategoryNav = () => {
             Charging
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/category/vehicle_accessories"
             className={(navData) => (navData.isActive ? "active" : "")}
           >
             Vehicle Accessories
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             to="/category/apparel"

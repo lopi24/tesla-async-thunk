@@ -15,17 +15,22 @@ const CategoryPage = () => {
     selectProductsByCategory(state, categoryType)
   );
 
+  console.log(productsByCategory);
+
   const productsStatus = useSelector(getProductsStatus);
   const productsError = useSelector(getProductsError);
 
   const sortedForCategory = Object.values(
     productsByCategory?.reduce((accum, currVal) => {
-      if (accum.hasOwnProperty(currVal.tags))
-        accum[currVal.tags].productDetails.push(currVal);
-      else
-        accum[currVal.tags] = {
+      if (accum.hasOwnProperty(currVal.subCategory)) {
+        accum[currVal.subCategory].productDetails.push(currVal);
+        if (!accum[currVal.subCategory].tags.includes(currVal.tags)) {
+          accum[currVal.subCategory].tags.push(currVal.tags);
+        }
+      } else
+        accum[currVal.subCategory] = {
           subCategory: currVal.subCategory,
-          tags: currVal.tags,
+          tags: [currVal.tags],
           productDetails: [currVal],
         };
       return accum;
@@ -38,48 +43,41 @@ const CategoryPage = () => {
   if (productsStatus === "loading") {
     content = <p>"Loading..."</p>;
   } else if (productsStatus === "succeeded") {
-    if (categoryType === "apparel") {
-      content = sortedForCategory.map((subCategory, index) => (
-        <div className={`${categoryType}-content`} key={index}>
+    // if (categoryType === "apparel") {
+    content = sortedForCategory.map((subCategory, index) => (
+      <>
+        {subCategory.subCategory ? (
           <div className="subCategory-header">
             <h1>{subCategory.subCategory}</h1>
           </div>
-          <div className="tags-header">
-            <h3>{subCategory.tags}</h3>
-          </div>
-          <div className="tags-content">
-            {subCategory.productDetails.map((product) => (
-              <ProductList
-                key={product.key}
-                id={product.id}
-                name={product.name}
-                img={product.imgs}
-                price={`$${product.price}`}
-              />
-            ))}
-          </div>
-        </div>
-      ));
-    } else {
-      content = sortedForCategory.map((tag, index) => (
+        ) : null}
         <div className={`${categoryType}-content`} key={index}>
-          <div className="tags-header">
-            <h3>{tag.tags}</h3>
-          </div>
-          <div className="tags-content" key={index}>
-            {tag.productDetails.map((product) => (
-              <ProductList
-                key={product.key}
-                id={product.id}
-                name={product.name}
-                price={`$${product.price}`}
-                img={product.imgs}
-              />
-            ))}
-          </div>
+          {subCategory.tags.map((tag, index) => (
+            <>
+              <div className="tags-header" key={index}>
+                <h3>{tag}</h3>
+              </div>
+              <div className="tags-content">
+                {subCategory.productDetails.map((product) => {
+                  if (tag === product.tags) {
+                    return (
+                      <ProductList
+                        key={product.key}
+                        id={product.id}
+                        name={product.name}
+                        img={product.imgs}
+                        price={product.price}
+                      />
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            </>
+          ))}
         </div>
-      ));
-    }
+      </>
+    ));
   } else if (productsStatus === "failed") {
     content = <p>{productsError}</p>;
   }
