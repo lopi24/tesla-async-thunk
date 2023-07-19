@@ -67,6 +67,7 @@ const CategoryPage = () => {
                         name={product.name}
                         img={product.imgs}
                         price={product.price}
+                        outOfStock={product.outOfStock}
                       />
                     );
                   }

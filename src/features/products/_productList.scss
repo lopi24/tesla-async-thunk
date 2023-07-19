@@ -8,9 +8,28 @@
   .product-img {
     display: flex;
     position: relative;
-    // height: 100%;
 
-    .quick-add {
+    a {
+      position: relative;
+      .out-of-stock {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-transform: capitalize;
+        background-color: map-get(
+          variables.$light-theme-colors,
+          "primary-color"
+        );
+        color: map-get(variables.$light-theme-colors, "bg-color");
+        padding: 0.75rem 0.3rem;
+        font-weight: 600;
+        letter-spacing: 0.25px;
+        font-size: variables.$base-font-size;
+      }
+    }
+
+    .quick-add,
+    .view-details {
       position: absolute;
       //   display: flex;
       align-items: center;

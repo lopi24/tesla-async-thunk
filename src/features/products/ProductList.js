@@ -32,23 +32,37 @@ const ProductList = (props) => {
         {props?.img?.length > 1 ? (
           <Link to="/test">
             <img src={imageHover[0]} alt={props?.name} />
+            {props?.outOfStock && (
+              <span className="out-of-stock">out of stock</span>
+            )}
           </Link>
         ) : (
           <Link to="/test">
             <img src={props?.img[0]} alt={props?.name} />
           </Link>
         )}
-        <div
-          onClick={addToCartHandler}
-          style={imageHover[1]}
-          className="quick-add"
-        >
-          quick add +
-        </div>
+        {props?.outOfStock ? (
+          <Link
+            to="#"
+            onClick={addToCartHandler}
+            style={imageHover[1]}
+            className="view-details"
+          >
+            view details
+          </Link>
+        ) : (
+          <div
+            onClick={addToCartHandler}
+            style={imageHover[1]}
+            className="quick-add"
+          >
+            quick add +
+          </div>
+        )}
       </div>
       <div className="product-details">
         <Link>{props?.name}</Link>
-        <p>${props?.price}</p>
+        {isNaN(props.price) ? <p>{props?.price}</p> : <p>${props?.price}</p>}
       </div>
     </div>
   );
