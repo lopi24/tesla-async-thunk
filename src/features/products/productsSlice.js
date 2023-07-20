@@ -71,12 +71,17 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.pending, (state, action) => {
         state.status = "loading";
       })
-      //fulfilled
+      // fulfilled
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.status = "succeeded";
         // state.products = action.payload;
         productsAdapter.upsertMany(state, action.payload);
+      })
+      // rejected
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });
@@ -95,8 +100,57 @@ export const getCount = (state) => state.products.count;
 
 export const selectProductsByCategory = createSelector(
   [selectAllProducts, (state, categoryType) => categoryType],
-  (products, categoryType) =>
-    products.filter((product) => product.category === categoryType)
+  (products, categoryType) => {
+    const filterProducts = products.filter(
+      (product) => product.category === categoryType
+    );
+
+    const sortedProducts = Object.values(
+      filterProducts?.reduce((accum, currVal) => {
+        if (accum.hasOwnProperty(currVal.subCategory)) {
+          accum[currVal.subCategory].productDetails.push(currVal);
+          if (!accum[currVal.subCategory].tags.includes(currVal.tags)) {
+            accum[currVal.subCategory].tags.push(currVal.tags);
+          }
+        } else
+          accum[currVal.subCategory] = {
+            subCategory: currVal.subCategory,
+            tags: [currVal.tags],
+            productDetails: [currVal],
+          };
+        return accum;
+      }, {})
+    );
+
+    return sortedProducts;
+  }
+);
+
+export const selectProductsBySubCategory = createSelector(
+  [selectAllProducts, (state, subCategoryType) => subCategoryType],
+  (products, subCategoryType) => {
+    const filterProducts = products.filter(
+      (product) => product.subCategory === subCategoryType
+    );
+
+    const sortedProducts = Object.values(
+      filterProducts?.reduce((accum, currVal) => {
+        if (accum.hasOwnProperty(currVal.subCategory)) {
+          accum[currVal.subCategory].productDetails.push(currVal);
+          if (!accum[currVal.subCategory].tags.includes(currVal.tags)) {
+            accum[currVal.subCategory].tags.push(currVal.tags);
+          }
+        } else
+          accum[currVal.subCategory] = {
+            subCategory: currVal.subCategory,
+            tags: [currVal.tags],
+            productDetails: [currVal],
+          };
+        return accum;
+      }, {})
+    );
+    return sortedProducts;
+  }
 );
 
 export const { increaseCount } = productsSlice.actions;

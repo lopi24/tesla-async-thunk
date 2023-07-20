@@ -21,10 +21,14 @@
           "primary-color"
         );
         color: map-get(variables.$light-theme-colors, "bg-color");
-        padding: 0.75rem 0.3rem;
+        height: 3vw;
+        padding: 0.75rem 0.5rem;
         font-weight: 600;
         letter-spacing: 0.25px;
-        font-size: variables.$base-font-size;
+        font-size: 1.1vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -73,8 +77,29 @@
   }
 }
 
+@include breakpoints.md {
+  .products-list-card {
+    .product-img {
+      a {
+        .out-of-stock {
+          height: 4vw;
+          font-size: 2vw;
+        }
+      }
+    }
+  }
+}
+
 @include breakpoints.sm {
   .products-list-card {
+    .product-img {
+      a {
+        .out-of-stock {
+          height: 5vw;
+          font-size: 3vw;
+        }
+      }
+    }
     .product-details {
       a,
       p {
@@ -86,6 +111,14 @@
 
 @media only screen and (max-width: 320px) {
   .products-list-card {
+    .product-img {
+      a {
+        .out-of-stock {
+          height: 6vw;
+          font-size: 4vw;
+        }
+      }
+    }
     .product-details {
       a,
       p {

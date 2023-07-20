@@ -3,23 +3,28 @@ import "./_productList.scss";
 import { useState } from "react";
 
 const ProductList = (props) => {
-  const [imageHover, setImageHover] = useState([
-    props?.img[0],
-    { display: "none" },
-  ]);
+  const [defaultImageHover, setDefaultImageHover] = useState({
+    display: "flex",
+  });
+  const [onHoverImageHover, setOnHoverImageHover] = useState({
+    display: "none",
+  });
 
   const onHoverHandler = () => {
     // console.log("hovering");
-    setImageHover([props?.img[1], { display: "flex" }]);
+    setOnHoverImageHover({ display: "flex" });
+    setDefaultImageHover({ display: "none" });
   };
 
   const onHoverOutHandler = () => {
     // console.log("Moust out!");
-    setImageHover([props?.img[0], { display: "none" }]);
+    setOnHoverImageHover({ display: "none" });
+    setDefaultImageHover({ display: "flex" });
   };
 
-  const addToCartHandler = () => {
-    console.log("Quick Add + Clicked!");
+  const addToCartHandler = (e) => {
+    // console.log("Quick Add + Clicked!");
+    console.log(e);
   };
 
   return (
@@ -30,30 +35,37 @@ const ProductList = (props) => {
         onMouseLeave={onHoverOutHandler}
       >
         {props?.img?.length > 1 ? (
-          <Link to="/test">
-            <img src={imageHover[0]} alt={props?.name} />
+          <Link to="#">
+            <img
+              style={defaultImageHover}
+              src={props?.img[0]}
+              alt={props?.name}
+            />
+            <img
+              style={onHoverImageHover}
+              src={props?.img[1]}
+              alt={props?.name}
+            />
             {props?.outOfStock && (
               <span className="out-of-stock">out of stock</span>
             )}
           </Link>
         ) : (
-          <Link to="/test">
-            <img src={props?.img[0]} alt={props?.name} />
+          <Link to="#">
+            <img
+              src={props?.img[0]}
+              alt={props?.name}
+            />
           </Link>
         )}
         {props?.outOfStock ? (
-          <Link
-            to="#"
-            onClick={addToCartHandler}
-            style={imageHover[1]}
-            className="view-details"
-          >
+          <Link to="#" style={onHoverImageHover} className="view-details">
             view details
           </Link>
         ) : (
           <div
-            onClick={addToCartHandler}
-            style={imageHover[1]}
+            onClick={addToCartHandler.bind(null, props?.id)}
+            style={onHoverImageHover}
             className="quick-add"
           >
             quick add +
@@ -62,7 +74,7 @@ const ProductList = (props) => {
       </div>
       <div className="product-details">
         <Link>{props?.name}</Link>
-        {isNaN(props.price) ? <p>{props?.price}</p> : <p>${props?.price}</p>}
+        {isNaN(props?.price) ? <p>{props?.price}</p> : <p>${props?.price}</p>}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Shop from "./features/shop/Shop";
 import Cart from "./features/cart/Cart";
 import CategoryPage from "./features/category/CategoryPage";
+import SubCategory from "./features/category/SubCategory";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
         <Route path="category">
           <Route path=":categoryType" element={<CategoryPage />} />
+          <Route path="apparel/:subCategoryType" element={<SubCategory />} />
         </Route>
       </Route>
     </Routes>

@@ -1,21 +1,21 @@
-import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   getProductsError,
   getProductsStatus,
-  selectProductsByCategory,
+  selectProductsBySubCategory,
 } from "../products/productsSlice";
-import "./_categoryPage.scss";
-import { useParams } from "react-router-dom";
+import "./_subCategory.scss";
+import { useSelector } from "react-redux";
 import ProductList from "../products/ProductList";
 
-const CategoryPage = () => {
-  const { categoryType } = useParams();
+const SubCategory = () => {
+  const { subCategoryType } = useParams();
+  //   console.log(subCategoryType);
 
-  const productsByCategory = useSelector((state) =>
-    selectProductsByCategory(state, categoryType)
+  const productsBySubCategory = useSelector((state) =>
+    selectProductsBySubCategory(state, subCategoryType)
   );
-
-  // console.log(productsByCategory);
+  //   console.log(productsBySubCategory);
 
   const productsStatus = useSelector(getProductsStatus);
   const productsError = useSelector(getProductsError);
@@ -24,16 +24,14 @@ const CategoryPage = () => {
   if (productsStatus === "loading") {
     content = <p>"Loading..."</p>;
   } else if (productsStatus === "succeeded") {
-    // if (categoryType === "apparel") {
-    content = productsByCategory.map((data, index) => (
-      <div className="content-section" key={index}>
-        {data.subCategory ? (
-          <div className="subCategory-header">
-            <h1>{data.subCategory}</h1>
-          </div>
-        ) : null}
+    content = productsBySubCategory.map((data, index) => (
+      <section className="subCategory-section" key={index}>
+        <div className="subCategory-header">
+          <h1>{data.subCategory}</h1>
+        </div>
+
         {data.tags.map((tag, index) => (
-          <div className={`${categoryType}-content`} key={index}>
+          <div className={`${subCategoryType}-content`} key={index}>
             <div className="tags-header" key={index}>
               <h3>{tag}</h3>
             </div>
@@ -56,22 +54,13 @@ const CategoryPage = () => {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     ));
   } else if (productsStatus === "failed") {
     content = <p>{productsError}</p>;
   }
 
-  return (
-    <section className="category-page">
-      {categoryType !== "apparel" && (
-        <div className="category-header">
-          <h1>{categoryType}</h1>
-        </div>
-      )}
-      {content}
-    </section>
-  );
+  return <>{content}</>;
 };
 
-export default CategoryPage;
+export default SubCategory;
