@@ -29,6 +29,7 @@ export const fetchProducts = createAsyncThunk(
       // console.log(response);
       const loadedProducts = [];
       const data = response.data;
+      // console.log(data);
       for (const key in data) {
         const imgs = data[key].imgs;
         const loadedImgs = [];
@@ -45,9 +46,10 @@ export const fetchProducts = createAsyncThunk(
           subCategory: data[key].subCategory,
           outOfStock: data[key].outOfStock,
           imgs: loadedImgs,
+          information: data[key].information,
         });
       }
-      // console.log(loadedProducts);
+      console.log(loadedProducts);
       return loadedProducts;
     } catch (err) {
       return err.message;
@@ -88,9 +90,8 @@ const productsSlice = createSlice({
 
 // export const selectAllProducts = (state) => state.products.products;
 
-export const { selectAll: selectAllProducts } = productsAdapter.getSelectors(
-  (state) => state.products
-);
+export const { selectAll: selectAllProducts, selectById: selectProductById } =
+  productsAdapter.getSelectors((state) => state.products);
 
 export const getProductsStatus = (state) => state.products.status;
 export const getProductsError = (state) => state.products.error;

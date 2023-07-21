@@ -1,9 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Shop from "./features/shop/Shop";
 import Cart from "./features/cart/Cart";
 import CategoryPage from "./features/category/CategoryPage";
 import SubCategory from "./features/category/SubCategory";
+import ProductDetail from "./features/products/ProductDetail";
 
 function App() {
   return (
@@ -17,6 +18,13 @@ function App() {
           <Route path=":categoryType" element={<CategoryPage />} />
           <Route path="apparel/:subCategoryType" element={<SubCategory />} />
         </Route>
+
+        <Route path="product">
+          <Route path=":productId" element={<ProductDetail />} />
+        </Route>
+
+        {/* create 404 page */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );

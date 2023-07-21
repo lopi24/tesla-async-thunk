@@ -1,0 +1,27 @@
+.product-detail-section {
+  margin: 5rem auto 0 auto;
+  display: flex;
+  width: 92.5%;
+  gap: 3%;
+
+  .image-section {
+    width: 67%;
+
+    .display-image {
+      //   height: 30vw;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .images {
+    }
+  }
+
+  .information-section {
+    width: 30%;
+  }
+}

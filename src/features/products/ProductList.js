@@ -35,7 +35,7 @@ const ProductList = (props) => {
         onMouseLeave={onHoverOutHandler}
       >
         {props?.img?.length > 1 ? (
-          <Link to="#">
+          <Link to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}>
             <img
               style={defaultImageHover}
               src={props?.img[0]}
@@ -51,15 +51,16 @@ const ProductList = (props) => {
             )}
           </Link>
         ) : (
-          <Link to="#">
-            <img
-              src={props?.img[0]}
-              alt={props?.name}
-            />
+          <Link to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}>
+            <img src={props?.img[0]} alt={props?.name} />
           </Link>
         )}
         {props?.outOfStock ? (
-          <Link to="#" style={onHoverImageHover} className="view-details">
+          <Link
+            to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}
+            style={onHoverImageHover}
+            className="view-details"
+          >
             view details
           </Link>
         ) : (
@@ -73,7 +74,9 @@ const ProductList = (props) => {
         )}
       </div>
       <div className="product-details">
-        <Link>{props?.name}</Link>
+        <Link to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}>
+          {props?.name}
+        </Link>
         {isNaN(props?.price) ? <p>{props?.price}</p> : <p>${props?.price}</p>}
       </div>
     </div>

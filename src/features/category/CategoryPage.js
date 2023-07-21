@@ -15,7 +15,7 @@ const CategoryPage = () => {
     selectProductsByCategory(state, categoryType)
   );
 
-  // console.log(productsByCategory);
+  console.log(productsByCategory);
 
   const productsStatus = useSelector(getProductsStatus);
   const productsError = useSelector(getProductsError);
