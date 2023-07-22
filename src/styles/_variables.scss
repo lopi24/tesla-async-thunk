@@ -4,8 +4,18 @@
 }
 
 @font-face {
-  font-family: gotham;
+  font-family: gothamMedium;
   src: url("../../tesla-font/GothamMedium_1.ttf");
+}
+
+@font-face {
+  font-family: gothamLight;
+  src: url("../../tesla-font/GothamLight.ttf");
+}
+
+@font-face {
+  font-family: gothamBook;
+  src: url("../../tesla-font/GothamBook.ttf");
 }
 
 // theme colors
@@ -48,5 +58,7 @@ $font-size-xxl: $base-font-size * 2;
 $font-size-xxxl: $base-font-size * 2.5;
 
 // font-family
-$primary-font: gotham;
+$primary-font: gothamMedium;
+$primary-font-light: gothamLight;
+$primary-font-book: gothamBook;
 $secondary-font: teslaFont;
