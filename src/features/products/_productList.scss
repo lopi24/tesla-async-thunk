@@ -10,6 +10,9 @@
     position: relative;
 
     a {
+      .lazy-load-image-background.blur.lazy-load-image-loaded {
+        display: block !important;
+      }
       position: relative;
       .out-of-stock {
         position: absolute;

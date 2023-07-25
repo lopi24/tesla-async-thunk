@@ -12,6 +12,7 @@ const PRODUCT_URL =
 
 const productsAdapter = createEntityAdapter({
   selectId: (product) => product.productId,
+  sortComparer: (a, b) => a.tags.localeCompare(b.tags),
 });
 
 const initialState = productsAdapter.getInitialState({

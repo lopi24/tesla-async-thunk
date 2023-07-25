@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import "./_productList.scss";
 import { useState } from "react";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../cart/cartSlice";
+
 const ProductList = (props) => {
+  const dispatch = useDispatch();
+
   const [defaultImageHover, setDefaultImageHover] = useState({
     display: "flex",
   });
@@ -22,10 +29,13 @@ const ProductList = (props) => {
     setDefaultImageHover({ display: "flex" });
   };
 
-  const addToCartHandler = (e) => {
+  const addToCartHandler = (item) => {
     // console.log("Quick Add + Clicked!");
-    console.log(e);
+    console.log(item);
+    dispatch(addItemToCart(item));
   };
+
+  // try to experiment on the onLoad in img and create a skeleton for it before it loads
 
   return (
     <div className="products-list-card">
@@ -36,7 +46,8 @@ const ProductList = (props) => {
       >
         {props?.img?.length > 1 ? (
           <Link to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}>
-            <img
+            <LazyLoadImage
+              effect="blur"
               style={defaultImageHover}
               src={props?.img[0]}
               alt={props?.name}
@@ -52,7 +63,11 @@ const ProductList = (props) => {
           </Link>
         ) : (
           <Link to={`/product/${props?.id.replace(/\s+/g, "-").toLowerCase()}`}>
-            <img src={props?.img[0]} alt={props?.name} />
+            <LazyLoadImage
+              effect="blur"
+              src={props?.img[0]}
+              alt={props?.name}
+            />
           </Link>
         )}
         {props?.outOfStock ? (
@@ -65,7 +80,12 @@ const ProductList = (props) => {
           </Link>
         ) : (
           <div
-            onClick={addToCartHandler.bind(null, props?.id)}
+            onClick={addToCartHandler.bind(null, {
+              productId: props?.id,
+              productName: props?.name,
+              productImg: props?.img,
+              productPrice: props?.price,
+            })}
             style={onHoverImageHover}
             className="quick-add"
           >

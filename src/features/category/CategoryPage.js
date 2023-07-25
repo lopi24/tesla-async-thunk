@@ -15,14 +15,14 @@ const CategoryPage = () => {
     selectProductsByCategory(state, categoryType)
   );
 
-  console.log(productsByCategory);
+  // console.log(productsByCategory);
 
   const productsStatus = useSelector(getProductsStatus);
   const productsError = useSelector(getProductsError);
 
   let content;
   if (productsStatus === "loading") {
-    content = <p>"Loading..."</p>;
+    content = <p>"Loading... FROM THE CATEGORY PAGE"</p>;
   } else if (productsStatus === "succeeded") {
     // if (categoryType === "apparel") {
     content = productsByCategory.map((data, index) => (

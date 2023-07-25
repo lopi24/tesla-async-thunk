@@ -22,6 +22,7 @@ import slide7 from "../../assets/best-seller-pics/model-3-all-weather-interior-l
 import slide8 from "../../assets/best-seller-pics/tire-repair-kit.png";
 import slide9 from "../../assets/best-seller-pics/model-3y-key-fob.png";
 import slide10 from "../../assets/best-seller-pics/model-s3y-pet-liner.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const sliderPics = [
   {
@@ -80,7 +81,7 @@ const BestSellers = () => {
   const content = sliderPics.map((data) => (
     <SwiperSlide key={data.id}>
       <Link to="#" className="slider">
-        <img src={data.src} alt={data.name} />
+        <LazyLoadImage effect="blur" src={data.src} alt={data.name} />
         <div className="best-sellers-slide-content">
           <p>{data.name}</p>
         </div>

@@ -14,6 +14,7 @@ import "swiper/css/scrollbar";
 import slide1 from "../../assets/hero-slide-pics/wall-connector-slide1.png";
 import slide2 from "../../assets/hero-slide-pics/chill-collection-slide2.png";
 import slide3 from "../../assets/hero-slide-pics/model-y-all-weather-interior-line-slide3.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const sliderPics = [
   {
@@ -40,7 +41,7 @@ const Hero = () => {
   const content = sliderPics.map((data) => (
     <SwiperSlide key={data.id}>
       <div className="slider">
-        <img src={data.src} alt={data.name} />
+        <LazyLoadImage src={data.src} alt={data.name} effect="blur" />
         <div className="hero-slide-content">
           <h1>{data.name}</h1>
           <h3>{data.description}</h3>

@@ -3,6 +3,7 @@ import "./_homeApparel.scss";
 import apparelMen from "../../../assets/home-categories-pics/apparel-men.png";
 import apparelWomen from "../../../assets/home-categories-pics/apparel-women.png";
 import apparelKids from "../../../assets/home-categories-pics/apparel-kids.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const apparelPics = [
   {
@@ -29,7 +30,7 @@ const HomeApparel = () => {
   const content = apparelPics.map((data) => (
     <div className="home-apparel-container" key={data.id}>
       <div className="home-apparel-img-section">
-        <img src={data.src} alt={data.alt} />
+        <LazyLoadImage effect="blur" src={data.src} alt={data.alt} />
       </div>
       <div className="home-apparel-content">
         <h1>{data.alt}</h1>
