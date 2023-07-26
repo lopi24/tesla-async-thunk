@@ -5,7 +5,11 @@ import { useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useDispatch } from "react-redux";
-import { addItemToCart } from "../cart/cartSlice";
+import {
+  addItemToCart,
+  getTotalAmount,
+  getTotalQuantity,
+} from "../cart/cartSlice";
 
 const ProductList = (props) => {
   const dispatch = useDispatch();
@@ -33,6 +37,8 @@ const ProductList = (props) => {
     // console.log("Quick Add + Clicked!");
     console.log(item);
     dispatch(addItemToCart(item));
+    dispatch(getTotalQuantity());
+    dispatch(getTotalAmount());
   };
 
   // try to experiment on the onLoad in img and create a skeleton for it before it loads

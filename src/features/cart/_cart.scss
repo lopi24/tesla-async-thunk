@@ -4,30 +4,209 @@
 
 .cart-section {
   margin: variables.$base-section-margin;
-  width: 95%;
+  width: 75%;
   height: 100%;
   flex-grow: 1;
+  font-family: variables.$primary-font-book;
+  font-weight: 600;
+  color: map-get(variables.$light-theme-colors, "font-color");
 
   .heading {
     width: 100%;
     padding: variables.$base-padding;
-    margin: variables.$base-margin;
+    // margin: variables.$base-margin;
 
     h1 {
-      font-weight: 500;
-      font-size: variables.$font-size-xl;
+      font-size: 1.75rem;
       color: map-get(variables.$light-theme-colors, "heading-color");
     }
   }
 
   .content {
-    width: 95%;
+    width: 100%;
     height: 100%;
     // margin: variables.$base-margin;
     margin: 0 auto;
     padding: variables.$base-padding;
-
     flex-grow: 1;
+
+    gap: 12%;
+
+    .content-list {
+      width: 49%;
+      // border: 1px solid blue;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      padding: 2rem 0;
+
+      li {
+        display: flex;
+        gap: 1.25rem;
+
+        .image-container {
+          overflow: hidden;
+          width: 100px;
+
+          img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .details-container {
+          padding: 0.5rem;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          font-size: variables.$font-size-sm;
+
+          .details {
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
+            p {
+              line-height: 1.8;
+            }
+            .details-actions {
+              display: flex;
+              gap: 1.5rem;
+              font-family: variables.$primary-font-light;
+              font-weight: 600;
+              color: map-get(variables.$light-theme-colors, "font-color");
+
+              button {
+                background-color: transparent;
+                border: none;
+                font-size: 0.9rem;
+                color: map-get(variables.$light-theme-colors, "font-color");
+                font-family: variables.$primary-font-book;
+                font-weight: 500;
+                border-bottom: 1px solid
+                  map-get(variables.$light-theme-colors, "font-color");
+                transition: 0.3s;
+                cursor: pointer;
+              }
+              button:hover {
+                border-bottom: 2.5px solid
+                  map-get(variables.$light-theme-colors, "font-color");
+              }
+            }
+          }
+          .price {
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+
+    .order-summary {
+      // border: 1px solid green;
+      border-radius: 3px;
+      width: 39%;
+      height: 100%;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .order-summary-header {
+        h1 {
+          text-transform: capitalize;
+          font-size: variables.$font-size-lg;
+          color: map-get(variables.$light-theme-colors, "heading-color");
+        }
+      }
+
+      .order-details {
+        color: map-get(variables.$light-theme-colors, "primary-color");
+        font-family: variables.$primary-font-light;
+        font-weight: 600;
+
+        .shipping,
+        .sales-tax {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .shipping,
+        .sales-tax {
+          p {
+            font-size: 0.94rem;
+            padding: 0.25rem 0;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            span {
+              position: relative;
+              margin-left: 0.25rem;
+              display: flex;
+              align-items: center;
+              text-align: center;
+
+              .sales-tax-info {
+                transition: 0.5s;
+                position: absolute;
+                border-radius: 5px;
+                top: -6.5rem;
+                left: -4.5rem;
+                width: 300px;
+                text-align: left;
+                background-color: map-get(
+                  variables.$light-theme-colors,
+                  "bg-color"
+                );
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12);
+                padding: 1.5rem 1.25rem;
+                line-height: 1.5;
+                font-size: variables.$font-size-sm;
+                font-family: variables.$primary-font-light;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+
+      .subtotal {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          text-transform: capitalize;
+          font-size: variables.$font-size-lg;
+          color: map-get(variables.$light-theme-colors, "heading-color");
+        }
+      }
+
+      .checkout-btn {
+        margin-top: 1rem;
+        button {
+          text-align: center;
+          @include grid.base-flex-container;
+          padding: 0.75rem 1rem;
+          width: 100%;
+          outline: none;
+          border: none;
+          cursor: pointer;
+          font-size: variables.$font-size-sm;
+          text-transform: capitalize;
+          border-radius: 5px;
+          color: map-get(variables.$light-theme-colors, "bg-color");
+          font-weight: 400;
+          font-family: variables.$primary-font;
+          transition: 0.3s;
+          background-color: #3e6ae1;
+        }
+        button:hover {
+          background-color: #3457b1;
+        }
+      }
+    }
 
     .message {
       padding: variables.$base-padding;
