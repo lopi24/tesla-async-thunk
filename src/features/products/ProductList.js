@@ -91,6 +91,7 @@ const ProductList = (props) => {
               productName: props?.name,
               productImg: props?.img,
               productPrice: props?.price,
+              productQuantity: 1,
             })}
             style={onHoverImageHover}
             className="quick-add"

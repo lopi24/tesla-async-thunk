@@ -1,8 +1,8 @@
-import { BiSearch } from "react-icons/bi";
 import "./_search.scss";
+import SearchButton from "./SearchButton";
 
 const Search = () => {
-  return <BiSearch />;
+  return <SearchButton />;
 };
 
 export default Search;

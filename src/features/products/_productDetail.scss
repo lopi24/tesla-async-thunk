@@ -1,4 +1,5 @@
 @use "../../styles/variables";
+@use "../../styles/breakpoints";
 
 .product-detail-section {
   margin: 5rem auto 0 auto;
@@ -52,6 +53,7 @@
 
   .information-section {
     width: 30%;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -227,6 +229,26 @@
           line-height: 1.3;
         }
       }
+    }
+  }
+}
+
+@include breakpoints.md {
+  .product-detail-section {
+    width: 100%;
+    display: block;
+
+    .image-section {
+      // border: 1px solid red;
+      margin: 0 auto;
+      width: 93%;
+    }
+
+    .information-section {
+      width: 93%;
+      margin: 0 auto;
+      margin-top: 1rem;
+      min-width: 0;
     }
   }
 }

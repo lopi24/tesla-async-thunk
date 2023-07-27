@@ -7,6 +7,7 @@ import {
   getTotalAmount,
   getTotalQuantity,
   removeItemFromCart,
+  updateItemQuantity,
 } from "./cartSlice";
 
 const Cart = () => {
@@ -35,6 +36,19 @@ const Cart = () => {
     dispatch(getTotalQuantity());
   };
 
+  const updateQuantityHandler = (qty, productId) => {
+    dispatch(
+      updateItemQuantity({
+        newQty: parseFloat(qty),
+        productId: productId,
+      })
+    );
+    // get total amoung
+    dispatch(getTotalAmount());
+    // get total quantity
+    dispatch(getTotalQuantity());
+  };
+
   let content;
   content = cart.map((item, index) => (
     <li key={index}>
@@ -45,7 +59,22 @@ const Cart = () => {
         <div className="details">
           <p>{item.productName}</p>
           <div className="details-actions">
-            <p>{`Quantity: ${item.productQuantity}`}</p>
+            <label htmlFor="quantity">Quantity: </label>
+            <select
+              id="quantity"
+              name="quantity"
+              value={item.productQuantity}
+              onChange={(e) =>
+                updateQuantityHandler(e.target.value, item.productId)
+              }
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            {/* <p>{`Quantity: ${}`}</p> */}
             <button
               onClick={removeItemFromCartHandler.bind(null, item.productId)}
             >
