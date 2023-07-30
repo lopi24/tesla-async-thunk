@@ -14,8 +14,8 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [opacity, setOpacity] = useState({ opacity: 0 });
   const cart = useSelector((state) => state.cart.items);
-  console.log(cart);
-  console.log(cart.length);
+  // console.log(cart);
+  // console.log(cart.length);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
 
   const onOpacity = () => {
@@ -28,7 +28,7 @@ const Cart = () => {
   };
 
   const removeItemFromCartHandler = (productId) => {
-    console.log(productId);
+    // console.log(productId);
     dispatch(removeItemFromCart(productId));
     // get total amoung
     dispatch(getTotalAmount());

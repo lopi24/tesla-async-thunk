@@ -38,6 +38,7 @@
     .quick-add,
     .view-details {
       position: absolute;
+      color: map-get(variables.$light-theme-colors, "heading-color");
       //   display: flex;
       align-items: center;
       justify-content: center;

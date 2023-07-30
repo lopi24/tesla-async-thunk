@@ -37,9 +37,8 @@ const ProductDetail = () => {
     setCounterQty((prevState) => prevState + 1);
   };
 
-  // console.log(counterQty);
-
   const addItemToCartHandler = () => {
+    // console.log(counterQty);
     dispatch(
       addItemToCart({
         productId: product?.productId,

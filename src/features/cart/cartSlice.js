@@ -15,7 +15,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
 
       const newItem = action.payload;
       const existingItem = state.items.find(
@@ -28,9 +28,16 @@ const cartSlice = createSlice({
         alert("You can only buy 5 pcs per item.");
         localStorage.setItem("cartItems", JSON.stringify(state.items));
       } else {
-        existingItem.productQuantity++;
+        if (existingItem.productQuantity + newItem.productQuantity > 5) {
+          alert("You can only buy 5 pcs per item.");
+          localStorage.setItem("cartItems", JSON.stringify(state.items));
+        } else {
+          existingItem.productQuantity += newItem.productQuantity;
+        }
       }
       localStorage.setItem("cartItems", JSON.stringify(state.items));
+
+      // && existingItem.productQuantity + newItem.productQuantity >= 5
     },
 
     getTotalQuantity(state) {
@@ -55,7 +62,7 @@ const cartSlice = createSlice({
       }
     },
     removeItemFromCart(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
       const newCartItems = state.items.filter(
         (item) => item.productId !== action.payload
       );

@@ -81,7 +81,7 @@ const BestSellers = () => {
   const content = sliderPics.map((data) => (
     <SwiperSlide key={data.id}>
       <Link to="#" className="slider">
-        <LazyLoadImage effect="blur" src={data.src} alt={data.name} />
+        <img src={data.src} alt={data.name} />
         <div className="best-sellers-slide-content">
           <p>{data.name}</p>
         </div>

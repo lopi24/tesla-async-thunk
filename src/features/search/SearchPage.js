@@ -10,17 +10,17 @@ import ProductList from "../products/ProductList";
 
 const SearchPage = () => {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   const searchedProducts = useSelector((state) =>
-    selectProductsBySearch(state, location.state.inputValue)
+    selectProductsBySearch(state, location.state.inputRefValue)
   );
 
   const productsStatus = useSelector(getProductsStatus);
-  console.log(productsStatus);
+  // console.log(productsStatus);
   const productsError = useSelector(getProductsError);
 
-  console.log(searchedProducts);
+  // console.log(searchedProducts);
 
   let content;
 

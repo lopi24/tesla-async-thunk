@@ -50,7 +50,7 @@ export const fetchProducts = createAsyncThunk(
           information: data[key].information,
         });
       }
-      console.log(loadedProducts);
+      // console.log(loadedProducts);
       return loadedProducts;
     } catch (err) {
       return err.message;
@@ -72,7 +72,7 @@ const productsSlice = createSlice({
     builder
       // pending
       .addCase(fetchProducts.pending, (state, action) => {
-        console.log("LOADING!");
+        // console.log("LOADING!");
         state.status = "loading";
       })
       // fulfilled

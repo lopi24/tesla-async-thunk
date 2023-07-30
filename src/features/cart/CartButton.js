@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const Cart = () => {
   const cartItemsQuantity = useSelector((state) => state.cart.totalQuantity);
 
-  console.log(cartItemsQuantity);
+  // console.log(cartItemsQuantity);
 
   return (
     <NavLink

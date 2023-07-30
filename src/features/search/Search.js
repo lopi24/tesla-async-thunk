@@ -8,8 +8,8 @@ const Search = () => {
     width: "0",
     opacity: "0",
   });
-  const [inputValue, setInputValue] = useState(undefined);
-  console.log(inputValue);
+  // const [inputValue, setInputValue] = useState(undefined);
+  // console.log(inputValue);
 
   const inputRef = useRef();
 
@@ -31,18 +31,20 @@ const Search = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    setInputValue(inputRef.current.value);
-    if (inputValue) {
+
+    const inputRefValue = inputRef.current.value;
+    // console.log(inputRefValue);
+
+    if (inputRefValue) {
       navigate(
         {
-          replace: true,
           // state: { inputValue },
           pathname: "search",
           search: createSearchParams({
-            searchTerm: inputValue,
+            searchTerm: inputRefValue,
           }).toString(),
         },
-        { state: { inputValue } }
+        { state: { inputRefValue } }
       );
     }
   };
