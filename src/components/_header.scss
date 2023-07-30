@@ -143,7 +143,7 @@
 
           svg {
             position: absolute;
-            left: 0.75rem;
+            right: -1.25rem;
             z-index: 99;
             color: map-get(variables.$light-theme-colors, "font-color");
           }

@@ -62,6 +62,10 @@
       h3::first-letter {
         text-transform: capitalize;
       }
+
+      .ui-button {
+        color: map-get(variables.$light-theme-colors, "font-color");
+      }
     }
   }
 }

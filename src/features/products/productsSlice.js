@@ -72,6 +72,7 @@ const productsSlice = createSlice({
     builder
       // pending
       .addCase(fetchProducts.pending, (state, action) => {
+        console.log("LOADING!");
         state.status = "loading";
       })
       // fulfilled
@@ -145,6 +146,34 @@ export const selectProductsBySubCategory = createSelector(
         } else
           accum[currVal.subCategory] = {
             subCategory: currVal.subCategory,
+            tags: [currVal.tags],
+            productDetails: [currVal],
+          };
+        return accum;
+      }, {})
+    );
+    return sortedProducts;
+  }
+);
+
+export const selectProductsBySearch = createSelector(
+  [selectAllProducts, (state, searchTerm) => searchTerm],
+  (products, searchTerm) => {
+    const filterProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm)
+    );
+
+    const sortedProducts = Object.values(
+      filterProducts?.reduce((accum, currVal) => {
+        if (accum.hasOwnProperty(currVal.subCategory)) {
+          accum[currVal.subCategory].productDetails.push(currVal);
+          if (!accum[currVal.subCategory].tags.includes(currVal.tags)) {
+            accum[currVal.subCategory].tags.push(currVal.tags);
+          }
+        } else
+          accum[currVal.subCategory] = {
+            subCategory: currVal.subCategory,
+            category: currVal.category,
             tags: [currVal.tags],
             productDetails: [currVal],
           };

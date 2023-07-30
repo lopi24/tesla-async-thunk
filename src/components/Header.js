@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoryNav from "../features/Heading/CategoryNav";
 import CartButton from "../features/cart/CartButton";
-import Search from "../features/Heading/utility/Search";
+import Search from "../features/search/Search";
 import { BiX } from "react-icons/bi";
 import "./_header.scss";
 import { NavLink } from "react-router-dom";

@@ -11,7 +11,9 @@ const Cart = () => {
   return (
     <NavLink
       to="/cart"
-      className={(navData) => (navData.isActive ? "active" : "")}
+      className={(navData) =>
+        navData.isActive ? "cartButton-active" : "cartButton"
+      }
     >
       <BiCartAlt />
       <span

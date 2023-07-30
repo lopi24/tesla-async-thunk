@@ -5,6 +5,7 @@ import Cart from "./features/cart/Cart";
 import CategoryPage from "./features/category/CategoryPage";
 import SubCategory from "./features/category/SubCategory";
 import ProductDetail from "./features/products/ProductDetail";
+import SearchPage from "./features/search/SearchPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="product">
           <Route path=":productId" element={<ProductDetail />} />
         </Route>
+
+        <Route path="search" element={<SearchPage />}></Route>
 
         {/* create 404 page */}
         <Route path="*" element={<Navigate to="/" replace />} />

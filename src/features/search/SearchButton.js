@@ -1,7 +1,7 @@
 import "./_searchButton.scss";
 import { BiSearch } from "react-icons/bi";
 
-const SearchButton = () => {
+const SearchButton = (props) => {
   return <BiSearch />;
 };
 

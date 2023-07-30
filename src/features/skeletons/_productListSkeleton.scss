@@ -1,0 +1,40 @@
+@use "../../styles/variables";
+
+.products-list-card-skeleton {
+  position: relative;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
+
+  .product-img-skeleton {
+    position: relative;
+    background-color: map-get(variables.$light-theme-colors, "primary-color");
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-details-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .name-skeleton {
+      padding: 0.25rem 0;
+      height: variables.$base-font-size;
+      width: 100%;
+      background-color: map-get(variables.$light-theme-colors, "primary-color");
+    }
+    .price-skeleton {
+      padding: 0.25rem 0;
+      height: variables.$base-font-size;
+      width: 10%;
+      background-color: map-get(variables.$light-theme-colors, "primary-color");
+    }
+  }
+}

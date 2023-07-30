@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./_productList.scss";
 import { useState } from "react";
 
+import sampleImg from "../../assets/logo/tesla-logo.png";
+
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { useDispatch } from "react-redux";
@@ -41,8 +43,6 @@ const ProductList = (props) => {
     dispatch(getTotalAmount());
   };
 
-  // try to experiment on the onLoad in img and create a skeleton for it before it loads
-
   return (
     <div className="products-list-card">
       <div
@@ -57,7 +57,9 @@ const ProductList = (props) => {
               style={defaultImageHover}
               src={props?.img[0]}
               alt={props?.name}
+              placeholderSrc={sampleImg}
             />
+
             <img
               style={onHoverImageHover}
               src={props?.img[1]}
@@ -73,6 +75,7 @@ const ProductList = (props) => {
               effect="blur"
               src={props?.img[0]}
               alt={props?.name}
+              placeholderSrc={sampleImg}
             />
           </Link>
         )}

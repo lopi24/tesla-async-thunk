@@ -1,0 +1,34 @@
+@use "../../styles/variables";
+
+.content-section-skeleton {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: 3rem;
+
+  .subCategory-header-skeleton {
+    width: 10%;
+    height: variables.$font-size-lg;
+    background-color: map-get(variables.$light-theme-colors, "primary-color");
+  }
+
+  .category-content-skeleton {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 2rem;
+
+    .tags-header-skeleton {
+      width: 5%;
+      height: variables.$font-size-lg;
+      background-color: map-get(variables.$light-theme-colors, "primary-color");
+    }
+    .tags-content-skeleton {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: minmax(25vw, auto);
+      gap: 3rem;
+      // margin-bottom: 1rem;
+    }
+  }
+}

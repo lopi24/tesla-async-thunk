@@ -1,17 +1,57 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectProductById } from "./productsSlice";
 import { useParams } from "react-router-dom";
 import "./_productDetail.scss";
 import { useEffect, useState } from "react";
+import {
+  addItemToCart,
+  getTotalAmount,
+  getTotalQuantity,
+} from "../cart/cartSlice";
 
 const ProductDetail = () => {
+  const [counterQty, setCounterQty] = useState(1);
   const { productId } = useParams();
   const product = useSelector((state) => selectProductById(state, productId));
   const [displayImage, setDisplayImage] = useState(product && product?.imgs[0]);
 
+  // console.log(product);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     setDisplayImage(product && product?.imgs[0]);
   }, [product]);
+
+  const reduceHandler = () => {
+    if (counterQty === 1) {
+      return counterQty;
+    }
+    setCounterQty((prevState) => prevState - 1);
+  };
+
+  const increaseHandler = () => {
+    if (counterQty === 5) {
+      return counterQty;
+    }
+    setCounterQty((prevState) => prevState + 1);
+  };
+
+  // console.log(counterQty);
+
+  const addItemToCartHandler = () => {
+    dispatch(
+      addItemToCart({
+        productId: product?.productId,
+        productName: product?.name,
+        productImg: product?.imgs,
+        productPrice: product?.price,
+        productQuantity: counterQty,
+      })
+    );
+    dispatch(getTotalQuantity());
+    dispatch(getTotalAmount());
+  };
 
   let content;
 
@@ -40,19 +80,40 @@ const ProductDetail = () => {
           <div className="info-price">
             <p>${product?.price}</p>
           </div>
-          <div className="info-qty">
-            <div className="qty-header">
-              <p>quantity</p>
-            </div>
-            <div className="qty-inputs">
-              <button className="btn-less">-</button>
-              <div className="qty-num">1</div>
-              <button className="btn-add">+</button>
-            </div>
-          </div>
-          <div className="info-btn">
-            <button>Add to Cart</button>
-          </div>
+          {!product?.outOfStock && (
+            <>
+              <div className="info-qty">
+                <div className="qty-header">
+                  <p>quantity</p>
+                </div>
+                <div className="qty-inputs">
+                  {counterQty === 1 ? (
+                    <button className="btn-less disabled" disabled>
+                      -
+                    </button>
+                  ) : (
+                    <button className="btn-less" onClick={reduceHandler}>
+                      -
+                    </button>
+                  )}
+
+                  <div className="qty-num">{counterQty}</div>
+                  {counterQty === 5 ? (
+                    <button className="btn-add disabled" disabled>
+                      +
+                    </button>
+                  ) : (
+                    <button className="btn-add" onClick={increaseHandler}>
+                      +
+                    </button>
+                  )}
+                </div>
+              </div>
+              <div className="info-btn">
+                <button onClick={addItemToCartHandler}>Add to Cart</button>
+              </div>
+            </>
+          )}
         </div>
         <div className="dynamic-content">
           <div className="description">
