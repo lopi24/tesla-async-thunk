@@ -1,4 +1,5 @@
 @use "../../styles/variables";
+@use "../../styles/breakpoints";
 
 .search-section {
   position: relative;
@@ -33,4 +34,45 @@
       display: none;
     }
   }
+}
+
+.search-section-smaller-vp {
+  position: relative;
+  left: 0;
+  top: 0;
+
+  display: flex;
+
+  .input-form-smaller-vp {
+    // position: absolute;
+    left: 0;
+    width: 100%;
+
+    .input-search-smaller-vp {
+      width: 100%;
+      padding: 0.5rem 1rem 0.5rem 2rem;
+      font-size: variables.$font-size-sm;
+      outline: none;
+      background-color: transparent;
+      border: 1.5px solid #d0d1d2;
+      border-radius: 3px;
+    }
+
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  svg {
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    border-right: 1px solid #d0d1d2;
+  }
+}
+
+@include breakpoints.lg {
 }

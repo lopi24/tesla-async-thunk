@@ -111,7 +111,7 @@ const Header = () => {
               </div>
               <div className="search-container">
                 <Search />
-                <input placeholder="Search" />
+                {/* <input placeholder="Search" /> */}
               </div>
               <CategoryNav />
             </div>

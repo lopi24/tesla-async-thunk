@@ -19,7 +19,7 @@ const CategoryPage = () => {
   // console.log(productsByCategory);
 
   const productsStatus = useSelector(getProductsStatus);
-  console.log(productsStatus);
+  // console.log(productsStatus);
   const productsError = useSelector(getProductsError);
 
   let content;
